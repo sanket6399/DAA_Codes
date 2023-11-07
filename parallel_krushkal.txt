@@ -1,0 +1,21 @@
+parallel_Kruskal_MST(Graph G):
+
+    # Create a disjoint-set data structure (e.g., union-find) for the vertices of G.
+
+    # Sort edges in parallel like we did using parallel quick sort
+    ParallelSort(G.edges, key=lambda edge.weight)
+
+    # Initialize MST and edge count keeper
+    MST = []
+    edge_count = 0
+
+    # Select the edge parallel and then assign each edge to n processor to computer where n is the number of processors
+    For each edge in G (in parallel):
+        if edge_count < G.num_vertices - 1:
+            if check(edge.source) != check(edge.target):
+                # The edge does not form a cycle in the MST
+                MST.append(edge)
+                Union(edge.source, edge.target)
+                edge_count += 1
+
+    Return MST
